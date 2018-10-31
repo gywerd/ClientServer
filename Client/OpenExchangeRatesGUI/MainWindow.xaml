@@ -1,0 +1,33 @@
+﻿<Window x:Class="OpenExchangeRatesGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OpenExchangeRatesGUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="LabelBaseRates" 
+               Content="Valuta" 
+               HorizontalAlignment="Left" 
+               Margin="100,50,0,0" 
+               VerticalAlignment="Top" />
+        <ComboBox x:Name="ComboBoxBaseRates" 
+                  HorizontalAlignment="Left" 
+                  Margin="225,50,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="200"
+                  SelectionChanged="ComboBoxBaseRates_SelectionChanged" />
+        <Label x:Name="LabelHundred"
+               Content="100 enheder koster:"
+               HorizontalAlignment="Left"
+               Margin="100,100,0,0"
+               VerticalAlignment="Top" />
+        <ListBox x:Name="ListBoxRateList" 
+                 HorizontalAlignment="Left" 
+                 Height="250" Width="475" 
+                 Margin="225,100,0,0" 
+                 VerticalAlignment="Top" />
+
+    </Grid>
+</Window>

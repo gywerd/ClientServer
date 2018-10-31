@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAsynchroneousClientSocket", "ConsoleApp1\ConsoleAsynchroneousClientSocket.csproj", "{48CF2A8A-5F07-43D5-BF46-BF23CEB5A1D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAsynchroneousClientSocket", "ConsoleAsynchroneousClientSocket\ConsoleAsynchroneousClientSocket.csproj", "{48CF2A8A-5F07-43D5-BF46-BF23CEB5A1D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{0CD552C5-4BBB-4471-878A-4866FC27831C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenExchangeRatesGUI", "OpenExchangeRatesGUI\OpenExchangeRatesGUI.csproj", "{A89C7436-78C8-4B69-BF01-272BC685FBB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsynchroneousClientSocket", "AsynchroneousClientSocket\AsynchroneousClientSocket.csproj", "{18528480-0F7C-4594-9049-FD631C13A466}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{48CF2A8A-5F07-43D5-BF46-BF23CEB5A1D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48CF2A8A-5F07-43D5-BF46-BF23CEB5A1D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48CF2A8A-5F07-43D5-BF46-BF23CEB5A1D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CD552C5-4BBB-4471-878A-4866FC27831C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CD552C5-4BBB-4471-878A-4866FC27831C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CD552C5-4BBB-4471-878A-4866FC27831C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CD552C5-4BBB-4471-878A-4866FC27831C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A89C7436-78C8-4B69-BF01-272BC685FBB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A89C7436-78C8-4B69-BF01-272BC685FBB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A89C7436-78C8-4B69-BF01-272BC685FBB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A89C7436-78C8-4B69-BF01-272BC685FBB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18528480-0F7C-4594-9049-FD631C13A466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18528480-0F7C-4594-9049-FD631C13A466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18528480-0F7C-4594-9049-FD631C13A466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18528480-0F7C-4594-9049-FD631C13A466}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
