@@ -8,27 +8,47 @@ namespace ConsoleAsynchroneousServerSocket
 {
     public class Rate
     {
-        private string _country;
-        private string _value;
+        #region Fields
+        private string currencyCode;
+        private string value;
+        #endregion
 
+        #region Constructors
         public Rate() { }
 
+        public Rate(string currencyCode, string value)
+        {
+            this.currencyCode = currencyCode;
+            this.value = value;
+        }
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Method, that returns main content as a string
+        /// </summary>
+        /// <returns>string</returns>
         public override string ToString()
         {
-            return @"100 " + _country + @" koster " + _value + @" US$";
+            return @"100 " + currencyCode + @" koster " + value + @" US$";
         }
 
-        public string country
+        #endregion
+
+        #region Properties
+        public string CurrencyCode
         {
-            get { return this._country; }
-            set { this._country = value; }
+            get { return this.currencyCode; }
+            set { this.currencyCode = value; }
         }
 
-        public string value
+        public string Value
         {
-            get { return this._value; }
-            set { this._value = value; }
+            get { return this.value; }
+            set { this.value = value; }
         }
+
+        #endregion
 
     }
 }

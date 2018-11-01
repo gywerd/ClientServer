@@ -8,6 +8,7 @@ namespace ConsoleAsynchroneousServerSocket
 {
     public class DollarRates
     {
+        #region Fields
         private List<Rate> rateList;
         private string _disclaimer;
         private string _licence;
@@ -15,36 +16,53 @@ namespace ConsoleAsynchroneousServerSocket
         private string _base;
         private Dictionary<string, decimal> _rates;
 
+        #endregion
+
+        #region Constructors
         public DollarRates()
         {
         }
 
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Method, that fills Dollar Rate List with data
+        /// </summary>
         public void FillListWithDollarRates()
         {
             List<Rate> ld = new List<Rate>();
             foreach (var item in _rates)
             {
                 Rate cd = new Rate();
-                cd.country = item.Key;
-                cd.value = item.Value.ToString();
+                cd.CurrencyCode = item.Key;
+                cd.Value = item.Value.ToString();
                 ld.Add(cd);
             }
 
             rateList = ld;
         }
 
-        public string GetRateFromCountryCode(string cc)
+        /// <summary>
+        /// Method, that browses the Rate List to find a specific value
+        /// </summary>
+        /// <param name="currencyCode">string</param>
+        /// <returns>string</returns>
+        public string GetRateFromCountryCode(string currencyCode)
         {
             foreach (Rate rate in rateList)
             {
-                if (rate.country == cc)
+                if (rate.CurrencyCode == currencyCode)
                 {
                     return rate.ToString();
                 }
             }
-            return "The requested currency, " + cc + " is unknown.";
+            return "The requested currency, " + currencyCode + " is unknown.";
         }
 
+        #endregion
+
+        #region Properties
         public List<Rate> RateList
         {
             get { return this.rateList; }
@@ -88,5 +106,7 @@ namespace ConsoleAsynchroneousServerSocket
                 }
             }
         }
+
+        #endregion
     }
 }

@@ -15,6 +15,7 @@ namespace ConsoleAsynchroneousServerSocket
     {
         public class StateObject
         {
+            #region Fields
             // Client  socket.  
             public Socket workSocket = null;
             // Size of receive buffer.  
@@ -23,17 +24,29 @@ namespace ConsoleAsynchroneousServerSocket
             public byte[] buffer = new byte[BufferSize];
             // Received data string.  
             public StringBuilder sb = new StringBuilder();
+
+            #endregion
         }
 
         public class AsynchronousSocketListener
         {
+            #region Fields
             // Thread signal.  
             public static ManualResetEvent allDone = new ManualResetEvent(false);
 
+            #endregion
+
+            #region Constructors
             public AsynchronousSocketListener()
             {
             }
 
+            #endregion
+
+            #region Methods
+            /// <summary>
+            /// Method, that listens for requests
+            /// </summary>
             public static void StartListening()
             {
                 // Establish the local endpoint for the socket.  
@@ -79,6 +92,10 @@ namespace ConsoleAsynchroneousServerSocket
 
             }
 
+            /// <summary>
+            /// Method, that accepts a callback
+            /// </summary>
+            /// <param name="ar">IAsyncResult</param>
             public static void AcceptCallback(IAsyncResult ar)
             {
                 // Signal the main thread to continue.  
@@ -95,6 +112,10 @@ namespace ConsoleAsynchroneousServerSocket
                     new AsyncCallback(ReadCallback), state);
             }
 
+            /// <summary>
+            /// Method, that analyze the request and generate requested data
+            /// </summary>
+            /// <param name="ar">IAsyncResult</param>
             public static void ReadCallback(IAsyncResult ar)
             {
                 String content = String.Empty;
@@ -153,6 +174,11 @@ namespace ConsoleAsynchroneousServerSocket
                 }
             }
 
+            /// <summary>
+            /// Method, that converts a Rates Dicttionary into a Semicolon separated string
+            /// </summary>
+            /// <param name="CDR">DollarRates</param>
+            /// <returns>string</returns>
             private static string RateListToString(DollarRates CDR)
             {
                 string sdr = "";
@@ -164,6 +190,11 @@ namespace ConsoleAsynchroneousServerSocket
                 return result;
             }
 
+            /// <summary>
+            /// Method, that returns requested data
+            /// </summary>
+            /// <param name="handler">Socket</param>
+            /// <param name="data">String</param>
             private static void Send(Socket handler, String data)
             {
                 // Convert the string data to byte data using ASCII encoding.  
@@ -174,6 +205,10 @@ namespace ConsoleAsynchroneousServerSocket
                     new AsyncCallback(SendCallback), handler);
             }
 
+            /// <summary>
+            /// Method, that sends callback and closes Socket
+            /// </summary>
+            /// <param name="ar">IAsyncResult</param>
             private static void SendCallback(IAsyncResult ar)
             {
                 try
@@ -195,6 +230,13 @@ namespace ConsoleAsynchroneousServerSocket
                 }
             }
 
+            #endregion
+
+            /// <summary>
+            /// Main Program
+            /// </summary>
+            /// <param name="args">string[]</param>
+            /// <returns>int</returns>
             public static int Main(string[] args)
             {
                 StartListening();
