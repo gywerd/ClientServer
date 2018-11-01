@@ -131,7 +131,7 @@ namespace AsynchroneousClientSocket
         }
 
         /// <summary>
-        /// Method, that rupports Receive method
+        /// Method, that decode Received data
         /// </summary>
         /// <param name="ar">IAsyncResult</param>
         private static void ReceiveCallback(IAsyncResult ar)
@@ -188,7 +188,7 @@ namespace AsynchroneousClientSocket
         }
 
         /// <summary>
-        /// Method, that supports Send Method
+        /// Method, that encode Msg into transferable data
         /// </summary>
         /// <param name="ar">IAsyncResult</param>
         private static void SendCallback(IAsyncResult ar)
