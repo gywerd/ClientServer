@@ -11,7 +11,7 @@ namespace AsynchroneousClientSocket
 {
     public class AsynchroneousClient
     {
-
+        #region Fields
         // The port number for the remote device.  
         private const int port = 11000;
 
@@ -26,8 +26,19 @@ namespace AsynchroneousClientSocket
         // The response from the remote device.  
         private static String response = String.Empty;
 
+        #endregion
+
+        #region Constructors
         public AsynchroneousClient() { }
 
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Method, that opens a connection to server
+        /// </summary>
+        /// <param name="Msg">string</param>
+        /// <returns>string</returns>
         public string StartClient(string Msg = "")
         {
             // Connect to a remote device.  
@@ -71,6 +82,10 @@ namespace AsynchroneousClientSocket
             }
         }
 
+        /// <summary>
+        /// Method, that establishes the connection (Handshake)
+        /// </summary>
+        /// <param name="ar">IAsyncResult</param>
         private static void ConnectCallback(IAsyncResult ar)
         {
             try
@@ -92,6 +107,11 @@ namespace AsynchroneousClientSocket
                 Console.WriteLine(e.ToString());
             }
         }
+
+        /// <summary>
+        /// Method, that  Receives requested data from ServerSide
+        /// </summary>
+        /// <param name="client">Socket</param>
         private static void Receive(Socket client)
         {
             try
@@ -110,6 +130,10 @@ namespace AsynchroneousClientSocket
             }
         }
 
+        /// <summary>
+        /// Method, that rupports Receive method
+        /// </summary>
+        /// <param name="ar">IAsyncResult</param>
         private static void ReceiveCallback(IAsyncResult ar)
         {
             try
@@ -148,6 +172,11 @@ namespace AsynchroneousClientSocket
             }
         }
 
+        /// <summary>
+        /// Method, that sends request to ServerSide
+        /// </summary>
+        /// <param name="client">Socket</param>
+        /// <param name="data">String</param>
         private static void Send(Socket client, String data)
         {
             // Convert the string data to byte data using ASCII encoding.  
@@ -158,6 +187,10 @@ namespace AsynchroneousClientSocket
                 new AsyncCallback(SendCallback), client);
         }
 
+        /// <summary>
+        /// Method, that supports Send Method
+        /// </summary>
+        /// <param name="ar">IAsyncResult</param>
         private static void SendCallback(IAsyncResult ar)
         {
             try
@@ -177,5 +210,7 @@ namespace AsynchroneousClientSocket
                 Console.WriteLine(e.ToString());
             }
         }
+
+        #endregion
     }
 }

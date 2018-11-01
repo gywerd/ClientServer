@@ -19,6 +19,9 @@ namespace ConsoleAsynchroneousServerSocket
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Empty Constructor
+        /// </summary>
         public DollarRates()
         {
         }

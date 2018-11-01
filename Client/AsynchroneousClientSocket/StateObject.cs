@@ -10,6 +10,7 @@ namespace AsynchroneousClientSocket
     // State object for receiving data from remote device.  
     public class StateObject
     {
+        #region Fields
         // Client socket.  
         public Socket workSocket = null;
         // Size of receive buffer.  
@@ -18,5 +19,7 @@ namespace AsynchroneousClientSocket
         public byte[] buffer = new byte[BufferSize];
         // Received data string.  
         public StringBuilder sb = new StringBuilder();
+
+        #endregion
     }
 }

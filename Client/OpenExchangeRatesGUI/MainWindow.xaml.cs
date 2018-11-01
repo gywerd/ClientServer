@@ -72,14 +72,22 @@ namespace OpenExchangeRatesGUI
             }
         }
         #endregion
-        private List<Rate> ConvertRateList(string code, double converter)
+
+        #region Methods
+        /// <summary>
+        /// Method, that converts Rate List with US-Dollar Base Rate to requested Base Rates
+        /// </summary>
+        /// <param name="currencyCode">string - requested Base Rate - 3 character string</param>
+        /// <param name="converter">double</param>
+        /// <returns>List<Rate></returns>
+        private List<Rate> ConvertRateList(string currencyCode, double converter)
         {
             List<Rate> tempList = new List<Rate>();
 
             foreach (Rate rate in UsdRateList)
             {
                 Rate tempRate = new Rate((Rate)rate);
-                if (rate.CurrencyCode == code)
+                if (rate.CurrencyCode == currencyCode)
                 {
                     tempRate.Value = 100;
                 }
@@ -97,6 +105,9 @@ namespace OpenExchangeRatesGUI
             return tempList;
         }
 
+        /// <summary>
+        /// Method, that converts Rate List with US-Dollar Base Rate to Rate Lists with DKK, EUR & GBP Base Rates
+        /// </summary>
         private void ConvertRateLists()
         {
             double dkkConverter = GetConverter("DKK");
@@ -107,12 +118,18 @@ namespace OpenExchangeRatesGUI
             GbpRateList = ConvertRateList("GBD", gbpConverter);
         }
 
+        /// <summary>
+        /// Method, that fills Rate Lists with currency values
+        /// </summary>
         private void FillRateLists()
         {
             FillUsdRateList();
             ConvertRateLists();
         }
 
+        /// <summary>
+        /// Method, that fills the US-Dollar Rate List with data from server
+        /// </summary>
         private void FillUsdRateList()
         {
             string response = "";
@@ -152,6 +169,11 @@ namespace OpenExchangeRatesGUI
             }
         }
 
+        /// <summary>
+        /// Method, that calculate the value to convert Rates from US-Dollars
+        /// </summary>
+        /// <param name="currencyCode">string - requested Base Rate - 3 character string</param>
+        /// <returns>double</returns>
         private double GetConverter(string currencyCode)
         {
             double result = 0;
@@ -169,6 +191,8 @@ namespace OpenExchangeRatesGUI
 
             return result;
         }
+
+        #endregion
 
     }
 }

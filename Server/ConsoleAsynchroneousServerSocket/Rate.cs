@@ -14,8 +14,16 @@ namespace ConsoleAsynchroneousServerSocket
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Empty Constructor
+        /// </summary>
         public Rate() { }
 
+        /// <summary>
+        /// Constructor used, when converting data from Json
+        /// </summary>
+        /// <param name="currencyCode">string - abbreviation of currency - 3 character string</param>
+        /// <param name="value">string</param>
         public Rate(string currencyCode, string value)
         {
             this.currencyCode = currencyCode;

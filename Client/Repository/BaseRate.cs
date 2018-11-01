@@ -8,22 +8,44 @@ namespace Repository
 {
     public class BaseRate
     {
+        #region Fields
         private string currencyCode;
         private string currencyName;
 
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Empty Constructor
+        /// </summary>
         public BaseRate() { }
 
-        public BaseRate(string country, string value)
+        /// <summary>
+        /// Constructor, that creates a new Base Rate with data
+        /// </summary>
+        /// <param name="currencyCode">string - abbreviation of currency - 3 character string</param>
+        /// <param name="currencyName">string</param>
+        public BaseRate(string currencyCode, string currencyName)
         {
-            this.currencyCode = country;
-            this.currencyName = value;
+            this.currencyCode = currencyCode;
+            this.currencyName = currencyName;
         }
 
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Method, that returns main content as a string
+        /// </summary>
+        /// <returns>string</returns>
         public override string ToString()
         {
             return currencyName + " (" + currencyCode + ")";
         }
 
+        #endregion
+
+        #region Properties
         public string CurrencyCode
         {
             get { return this.currencyCode; }
@@ -35,6 +57,8 @@ namespace Repository
             get { return this.currencyName; }
             set { this.currencyName = value; }
         }
+
+        #endregion
 
     }
 }
